@@ -31,14 +31,16 @@ def process(url):
     # print my book list format
     print("### X. [《{0}》]({1}) ★★★★★".format(book_title, url))
     print("")
-    print("```")
+    print("```go")
     print(book_info_result)
     print("```")
+    print("")
+    print(">")
     print("")
     print("![]({0})".format(img_small[0]))
 
 if __name__ == "__main__":
-    url = 'https://book.douban.com/subject/30238120/'
+    url = 'https://book.douban.com/subject/35562187/'
     process(url)
     
 

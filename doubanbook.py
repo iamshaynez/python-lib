@@ -4,6 +4,7 @@ import requests
 from lxml import etree
 import pandas as pd
 import re
+from img import ImageService
 
 def response(url):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.11 TaoBrowser/2.0 Safari/536.11'}
@@ -28,6 +29,12 @@ def process(url):
     book_info_result = re.sub('\n+','\n', book_info_result)
     #print(book_info_result)
 
+
+    # download image to upload to cdn
+    service = ImageService()
+    cdnUrl = service.upload(img_small[0], "./tmp/{0}.jpg".format(book_title))
+
+
     # print my book list format
     print("### X. [《{0}》]({1}) ★★★★★".format(book_title, url))
     print("")
@@ -37,10 +44,13 @@ def process(url):
     print("")
     print(">")
     print("")
-    print("![]({0})".format(img_small[0]))
+    print("![]({0})".format(cdnUrl))
+
+    #downloadImage(img_small[0], "{0}.jpg".format(book_title))
 
 if __name__ == "__main__":
-    url = 'https://book.douban.com/subject/35562187/'
+    url = 'https://book.douban.com/subject/36145025/'
+
     process(url)
     
 

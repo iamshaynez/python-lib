@@ -2,6 +2,8 @@ import requests
 import json
 import os
 
+# api util for sm.ms cdn cache
+
 class SMMS(object):
     # init
     def __init__(self, token):
@@ -92,8 +94,5 @@ def downloadImage(url, filename):
 if __name__ == "__main__":
     smms = SMMS('')
 
-    cdn = convert('https://img1.doubanio.com/view/subject/s/public/s34016149.jpg','./tmp/tmp.jpg', smms)
+    cdn = convert('https://img9.doubanio.com/view/subject/s/public/s29458844.jpg','./tmp/s29458844.jpg', smms)
     print(cdn)
-
-    #smms.upload_image('./tmp/tmp.jpg')
-    #url = 'https://book.douban.com/subject/35594496/'

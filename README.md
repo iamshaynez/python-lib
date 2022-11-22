@@ -11,3 +11,7 @@ CDN服务sm.ms的API调用。
 ## doubanbook.py
 
 抓去豆瓣图书页，输出markdown格式的书单信息。图片会上传到CDN并使用对应的URL。
+
+## todoist.py
+
+调用todoist api的测试脚本，用于生成GitHubPost的热力图。

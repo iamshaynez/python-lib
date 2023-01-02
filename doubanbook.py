@@ -19,6 +19,8 @@ def process(url):
     book_title = etree_html.xpath('.//h1/span/text()')[0]
     img_small = etree_html.xpath('.//div/a[@class="nbg"]/img/@src')
 
+    print("Found image url {0}".format(img_small))
+
     # span[contains(@class, 'myclass') and normalize-space(text()) = 'qwerty']
 
     book_info_test = etree_html.xpath('.//div[@id="info"]')
@@ -32,7 +34,9 @@ def process(url):
 
     # download image to upload to cdn
     service = ImageService()
-    cdnUrl = service.upload(img_small[0], "./tmp/{0}.jpg".format(book_title))
+
+    book_img = book_title.replace("/", "")
+    cdnUrl = service.upload(img_small[0], "./tmp/{0}.jpg".format(book_img))
 
 
     # print my book list format
@@ -49,7 +53,7 @@ def process(url):
     #downloadImage(img_small[0], "{0}.jpg".format(book_title))
 
 if __name__ == "__main__":
-    url = 'https://book.douban.com/subject/36145025/'
+    url = 'https://book.douban.com/subject/3830422/'
 
     process(url)
     

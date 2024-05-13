@@ -53,7 +53,9 @@ def process(url):
     #downloadImage(img_small[0], "{0}.jpg".format(book_title))
 
 if __name__ == "__main__":
-    url = 'https://book.douban.com/subject/3830422/'
+    url = 'https://book.douban.com/subject/36480673/'
+
+    # 
 
     process(url)
     
